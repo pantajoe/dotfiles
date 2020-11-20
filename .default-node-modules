@@ -1,5 +1,6 @@
 yarn
 eslint
 eslint-config-airbnb-base
+stylelint
 http-server
 json-server

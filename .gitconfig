@@ -1,0 +1,28 @@
+[user]
+	email = joe.pantazidis@outlook.de
+	name = Joe Pantazidis
+[core]
+	editor = vim
+	attributesfile = $HOME/.gitattributes
+[color]
+	ui = true
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
+
+[diff "rspec"]
+	xfuncname = "^[ \t]*((RSpec|describe|context|it|before|after|around|feature|scenario|background)[ \t].*)$"
+[diff "rust"]
+	xfuncname = "^[ \t]*(pub|)[ \t]*((fn|struct|enum|impl|trait|mod)[^;]*)$"
+[diff "exif"]
+	binary = true
+	textconv = exiftool
+[diff "pdf"]
+	textconv = pdftotext-stdout
+[diff "rstats"]
+	xfuncname = "^([a-zA-z.]+ <- function.*)$"
+[diff "texinfo"]
+	xfuncname = "^@node[ \t][ \t]*\\([^,][^,]*\\)"
+[diff "ecmascript"]
+	xfuncname = "^((.*function.*)|([ \t]+it\\(.*))$"

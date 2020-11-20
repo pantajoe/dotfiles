@@ -1,0 +1,40 @@
+# Print a new line at the start of the prompt
+add_newline = true
+
+format = """
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$ruby\
+$elixir\
+$python\
+$nodejs\
+$java\
+$cmd_duration\
+$character\
+"""
+
+[ruby]
+disabled = false
+symbol = "\uF43B "
+
+[nodejs]
+disabled = false
+symbol = "\uE718 "
+
+[elixir]
+disabled = false
+symbol = "\uE62D "
+
+[python]
+disabled = false
+symbol = "\uE73C "
+
+[git_branch]
+disabled = false
+symbol = "\uFB2B "
+
+[java]
+disabled = false
+symbol = "\uE738 "

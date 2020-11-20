@@ -1,0 +1,8 @@
+bundler 1.17.3
+pry
+pry-byebug
+rubocop
+rubocop-performance
+rufo
+solargraph
+ruby-debug-ide

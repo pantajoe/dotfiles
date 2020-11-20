@@ -1,0 +1,1 @@
+excludes [node_modules/**/*,db/schema.rb]

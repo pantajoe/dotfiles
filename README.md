@@ -16,4 +16,8 @@ dotfiles commit -m "add configuration stuff"
 dotfiles push
 ```
 
+## How to Create your own Dotfiles?
+
+Read [this Medium article](https://medium.com/toutsbrasil/how-to-manage-your-dotfiles-with-git-f7aeed8adf8b).
+
 &copy; Joe Pantazidis

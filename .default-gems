@@ -6,3 +6,4 @@ rubocop-performance
 rufo
 solargraph
 ruby-debug-ide
+bundler-audit

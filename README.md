@@ -9,7 +9,9 @@ This are my personal dotfiles.
 Simply execute the following script in any shell of your choice:
 
 ```shell
-curl -L https://github.com/pantajoe/dotfiles/raw/main/install/install.sh | sh
+git clone https://github.com/pantajoe/dotfiles.git ~/dotfiles-installation
+sh ~/dotfiles-installation/install/install.sh
+rm -rf ~/dotfiles-installation
 ```
 
 *(Note: On Linux, you will also be provided with some programs. However, if you execute this from a WSL, no GUI programs will be installed.)*

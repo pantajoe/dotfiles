@@ -2,8 +2,6 @@
 
 echo "\033[32m\033[1m***** Initialize Linux Setup! ******\033[0m"
 
-util_dir=$(dirname "$0")
-
 if ! grep ID /etc/os-release | grep -qE 'debian|ubuntu'; then
   echo "\033[31m\033[1mError: Only Debian and Ubuntu are supported.\033[0m"
   exit 1
@@ -45,11 +43,11 @@ echo "\033[1m***** Installing Starship Prompt *****\033[0m"
 curl -fsSL https://starship.rs/install.sh | bash
 echo "\033[1m***** Starship Prompt installed successfully *****\033[0m"
 
-exec "${util_dir}/fish_setup.sh"
+curl -L https://github.com/pantajoe/dotfiles/raw/main/install/fish_setup.sh | sh
 echo "\033[32m\033[1m***** Fish installed successfully *****\033[0m"
 
 # 3. ASDF VM
-exec "${util_dir}/asdf_setup.sh"
+curl -L https://github.com/pantajoe/dotfiles/raw/main/install/asdf_setup.sh | sh
 
 # 4. Fonts & LaTeX
 echo "\033[33m\033[1m***** Installing Fonts (Fira Code, Hack Nerd Font, JetBrains Mono) *****\033[0m"

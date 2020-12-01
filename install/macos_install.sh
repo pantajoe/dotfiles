@@ -2,8 +2,6 @@
 
 echo "\033[32m\033[1m***** Initialize MacOS Setup! ******\033[0m"
 
-util_dir=$(dirname "$0")
-
 # Homebrew
 if ! brew --version >/dev/null 2>&1; then
   echo "\033[31m\033[1mError! Homebrew not installed or broken!\033[0m"
@@ -50,11 +48,11 @@ brew install \
   starship \
   fortune
 
-exec "${util_dir}/fish_setup.sh"
+curl -L https://github.com/pantajoe/dotfiles/raw/main/install/fish_setup.sh | sh
 echo "\033[32m\033[1m***** Fish installed successfully *****\033[0m"
 
 # 3. ASDF VM
-exec "${util_dir}/asdf_setup.sh"
+curl -L https://github.com/pantajoe/dotfiles/raw/main/install/asdf_setup.sh | sh
 
 # 4. QuickLook Plugins, Fonts, LaTeX
 echo "\033[33m\033[1m***** Installing QuickLook Plugins *****\033[0m"

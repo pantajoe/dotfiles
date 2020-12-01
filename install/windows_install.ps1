@@ -138,20 +138,26 @@ New-Item -ItemType Directory -Force $HOME\.icons
 Invoke-WebRequest -Uri 'https://github.com/pantajoe/dotfiles/raw/main/windows/ubuntu.png' -OutFile $HOME\.icons\ubuntu.png
 Write-Host "***** Ubuntu for WSL2 installed successfully *****" -ForegroundColor green
 
-Write-Host "***** Installing Steam *****" -ForegroundColor yellow
-winget install Valve.Steam
-Write-Host "***** Steam installed successfully *****" -ForegroundColor green
+$title    = 'Games?'
+$question = 'Is this a Gaming Machine?'
+$choices  = '&Yes', '&No'
+$decision = $Host.UI.PromptForChoice($title, $question, $choices, 1)
+if ($decision -eq 0) {
+  Write-Host "***** Installing Steam *****" -ForegroundColor yellow
+  winget install Valve.Steam
+  Write-Host "***** Steam installed successfully *****" -ForegroundColor green
 
-Write-Host "***** Installing Ubisoft Connect *****" -ForegroundColor yellow
-winget install Ubisoft.Connect
-Write-Host "***** Ubisoft Connect installed successfully *****" -ForegroundColor green
+  Write-Host "***** Installing Ubisoft Connect *****" -ForegroundColor yellow
+  winget install Ubisoft.Connect
+  Write-Host "***** Ubisoft Connect installed successfully *****" -ForegroundColor green
 
-Write-Host "***** Installing Epic Games Launcher *****" -ForegroundColor yellow
-winget install EpicGames.EpicGamesLauncher
-Write-Host "***** Epic Games Launcher installed successfully *****" -ForegroundColor green
+  Write-Host "***** Installing Epic Games Launcher *****" -ForegroundColor yellow
+  winget install EpicGames.EpicGamesLauncher
+  Write-Host "***** Epic Games Launcher installed successfully *****" -ForegroundColor green
 
-Write-Host "***** Installing League of Legends *****" -ForegroundColor yellow
-winget install RiotGames.LeagueOfLegends
-Write-Host "***** League of Legends installed successfully *****" -ForegroundColor green
+  Write-Host "***** Installing League of Legends *****" -ForegroundColor yellow
+  winget install RiotGames.LeagueOfLegends
+  Write-Host "***** League of Legends installed successfully *****" -ForegroundColor green
+}
 
 Write-Host "***** Windows10 (>= Build 2004) Setup completed! *****" -ForegroundColor green

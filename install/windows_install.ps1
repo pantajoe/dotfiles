@@ -90,6 +90,44 @@ Write-Host "***** Installing Skype *****" -ForegroundColor yellow
 winget install Microsoft.Skype
 Write-Host "***** Skype installed successfully *****" -ForegroundColor green
 
+Write-Host "***** Installing Fonts (Fira Code, JetBrains Mono, Hack Nerd Font) *****" -ForegroundColor yellow
+choco install jetbrainsmono
+choco install firacode
+
+# Install Hack Nerd Fonts
+$Url = 'https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.zip'
+New-Item -ItemType Directory -Path 'C:\ZipFolder\'
+$ZipFile = 'C:\ZipFolder\' + $(Split-Path -Path $Url -Leaf) 
+$Destination = 'C:\Extracted\'
+New-Item -ItemType Directory -Path 'C:\Extracted\'
+Invoke-WebRequest -Uri $Url -OutFile $ZipFile 
+Expand-Archive -LiteralPath $ZipFile -DestinationPath $Destination 
+Remove-Item -Recurse -Force 'C:\ZipFolder'
+$FONTS = 0x14
+$objShell = New-Object -ComObject Shell.Application
+$objFolder = $objShell.Namespace($FONTS)
+$Fontdir = dir $Destination
+foreach($File in $Fontdir) {
+  if(!($file.name -match "pfb$")) {
+    $try = $true
+    $installedFonts = @(Get-ChildItem c:\windows\fonts | Where-Object {$_.PSIsContainer -eq $false} | Select-Object basename)
+    $name = $File.baseName
+
+    foreach($font in $installedFonts) {
+      $font = $font -replace "_", ""
+      $name = $name -replace "_", ""
+      if($font -match $name) {
+        $try = $false
+      }
+    }
+    if($try) {
+      $objFolder.CopyHere($File.fullname)
+    }
+  }
+}
+Remove-Item -Recurse -Force $Destination
+Write-Host "***** Fonts (Fira Code, JetBrains Mono, Hack Nerd Font) installed successfully *****" -ForegroundColor green
+
 Write-Host "***** Installing Altair GraphQL Client *****" -ForegroundColor yellow
 choco install altair-graphql
 Write-Host "***** Altair GraphQL Client installed successfully *****" -ForegroundColor green

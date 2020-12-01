@@ -1,8 +1,14 @@
 #!/bin/sh
-# Pick the correct install script based on the current OS
 
 util_dir=$(dirname "$0")
 
+# Copy Dotfiles
+git clone --bare git@github.com:pantajoe/dotfiles.git $HOME/.dotfiles
+alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+dotfiles config --local status.showUntrackedFiles no
+(cd ~ && dotfiles checkout -f)
+
+# Pick the correct install script based on the current OS
 case $(uname -a) in
   *Darwin*)
     exec "${util_dir}/macos_install.sh"

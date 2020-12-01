@@ -9,6 +9,3 @@
 - MS Office
 - Sciebo
 
-## TODO
-
-Private stuff, Windows Terminal Config

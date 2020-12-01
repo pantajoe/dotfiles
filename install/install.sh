@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Copy Dotfiles
-git clone --bare git@github.com:pantajoe/dotfiles.git $HOME/.dotfiles
+git clone --bare https://github.com/pantajoe/dotfiles.git $HOME/.dotfiles
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 dotfiles config --local status.showUntrackedFiles no
 (cd ~ && dotfiles checkout -f)

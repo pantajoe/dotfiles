@@ -94,7 +94,7 @@ install_language() {
 
 echo "\033[33m\033[1m***** Setup ASDF VM *****\033[0m"
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
-mkdir -p ~/.config/fish/completions; and cp ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+mkdir -p ~/.config/fish/completions && cp ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 
 IFS=$'\n' read -d '' -r -a languages < ~/.tool-versions
 

@@ -57,10 +57,10 @@ sudo apt-get -y install \
 
 # Install JetBrains Mono
 mkdir -p ~/.local/share/fonts
-wget https://download.jetbrains.com/fonts/JetBrainsMono-2.001.zip JetBrainsMono.zip
-unzip JetBrainsMono.zip
+wget https://download.jetbrains.com/fonts/JetBrainsMono-2.001.zip
+unzip JetBrainsMono-2.001.zip
 mv JetBrainsMono-*.ttf ~/.local/share/fonts/
-rm JetBrainsMono.zip
+rm JetBrainsMono-2.001.zip
 echo "\033[32m\033[1m***** Fonts (Fira Code, Hack Nerd Font, JetBrains Mono) installed successfully *****\033[0m"
 
 echo "\033[33m\033[1m***** Installing LaTeX *****\033[0m"

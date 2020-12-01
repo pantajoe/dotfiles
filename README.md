@@ -18,7 +18,8 @@ rm -rf ~/dotfiles-installation
 
 ### Windows
 
-Simply execute the following in an elevated PowerShell:
+You need to install the Windows Package Manager [`winget`](https://github.com/microsoft/winget-cli).
+Then, simply execute the following in an elevated PowerShell:
 
 ```ps1
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/pantajoe/dotfiles/raw/main/install/windows_install.ps1'))

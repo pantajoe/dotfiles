@@ -23,5 +23,3 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 ```
 
 *(Note: Only Programs and WSL2 are going to be setup on Windows. To setup your WSL, execute the script above.)*
-
-&copy; Joe Pantazidis

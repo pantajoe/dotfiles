@@ -1,23 +1,27 @@
 # Dotfiles
 
-## Getting Started
+This are my personal dotfiles. The strategy is to symlink all dotfiles from the cloned repository
 
-- Clone this repo: `git clone --bare git@github.com:pantajoe/dotfiles.git $HOME/.dotfiles`
-- Define an alias in the current shell scope: `alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'`
-- Checkout the actual content from the repo to `$HOME`: `dotfiles checkout`
-- Execute `bootstrap.sh` to install all dependencies
+## Installation
 
-## Contribute to your Dotfiles
+### MacOS and Debian-based Linux
 
-```bash
-dotfiles status
-dotfiles add .dotfilerc
-dotfiles commit -m "add configuration stuff"
-dotfiles push
+Simply execute the following script in any shell of your choice:
+
+```shell
+curl -L https://github.com/pantajoe/dotfiles/tree/main/install/install.sh | sh
 ```
 
-## How to Create your own Dotfiles?
+*(Note: On Linux, you will also be provided with some programs. However, if you execute this from a WSL, no GUI programs will be installed.)*
 
-Read [this Medium article](https://medium.com/toutsbrasil/how-to-manage-your-dotfiles-with-git-f7aeed8adf8b).
+### Windows
+
+Simply execute the following in an elevated PowerShell:
+
+```ps1
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/pantajoe/dotfiles/tree/main/install/windows_install.ps1'))
+```
+
+*(Note: Only Programs and WSL2 are going to be setup on Windows. To setup your WSL, execute the script above.)*
 
 &copy; Joe Pantazidis

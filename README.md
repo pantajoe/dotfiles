@@ -1,6 +1,6 @@
 # Dotfiles
 
-This are my personal dotfiles. The strategy is to symlink all dotfiles from the cloned repository
+This are my personal dotfiles.
 
 ## Installation
 
@@ -23,3 +23,12 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 ```
 
 *(Note: Only Programs and WSL2 are going to be setup on Windows. To setup your WSL, execute the script above.)*
+
+## Contribute to Dotfiles
+
+```bash
+dotfiles status
+dotfiles add .dotfilerc
+dotfiles commit -m "add configuration stuff"
+dotfiles push
+```

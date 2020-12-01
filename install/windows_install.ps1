@@ -100,8 +100,8 @@ New-Item -ItemType Directory -Path 'C:\ZipFolder\'
 $ZipFile = 'C:\ZipFolder\' + $(Split-Path -Path $Url -Leaf) 
 $Destination = 'C:\Extracted\'
 New-Item -ItemType Directory -Path 'C:\Extracted\'
-Invoke-WebRequest -Uri $Url -OutFile $ZipFile 
-Expand-Archive -LiteralPath $ZipFile -DestinationPath $Destination 
+Invoke-WebRequest -Uri $Url -OutFile $ZipFile
+Expand-Archive -LiteralPath $ZipFile -DestinationPath $Destination
 Remove-Item -Recurse -Force 'C:\ZipFolder'
 $FONTS = 0x14
 $objShell = New-Object -ComObject Shell.Application
@@ -134,6 +134,8 @@ Write-Host "***** Altair GraphQL Client installed successfully *****" -Foregroun
 
 Write-Host "***** Installing Ubuntu for WSL2 *****" -ForegroundColor yellow
 winget install Canonical.Ubuntu
+New-Item -ItemType Directory -Force $HOME\.icons
+Invoke-WebRequest -Uri 'https://github.com/pantajoe/dotfiles/raw/main/windows/ubuntu.png' -OutFile $HOME\.icons\ubuntu.png
 Write-Host "***** Ubuntu for WSL2 installed successfully *****" -ForegroundColor green
 
 Write-Host "***** Installing Steam *****" -ForegroundColor yellow

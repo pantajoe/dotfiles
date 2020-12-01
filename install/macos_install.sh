@@ -52,8 +52,7 @@ curl -L https://github.com/pantajoe/dotfiles/raw/main/install/fish_setup.sh | sh
 echo "\033[32m\033[1m***** Fish installed successfully *****\033[0m"
 
 # 3. ASDF VM
-brew install bash
-curl -L https://github.com/pantajoe/dotfiles/raw/main/install/asdf_setup.sh | bash
+curl -L https://github.com/pantajoe/dotfiles/raw/main/install/asdf_setup.sh | sh
 
 # 4. QuickLook Plugins, Fonts, LaTeX
 echo "\033[33m\033[1m***** Installing QuickLook Plugins *****\033[0m"

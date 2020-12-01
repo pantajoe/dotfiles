@@ -96,12 +96,14 @@ echo "\033[33m\033[1m***** Setup ASDF VM *****\033[0m"
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
 mkdir -p ~/.config/fish/completions && cp ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 
-IFS=$'\n' read -d '' -r -a languages < ~/.tool-versions
+# convert .tool-versions to languages array in the following format:
+#   ruby_2.7.1:nodejs_15.0.1:...
+languages=$(tr '\n' ':' < ~/.tool-versions | sed 's/.$//' | tr ' ' '_')
+IFS=':'
 
-for lang in "${languages[@]}"; do
-  IFS=' ' read -r -a lang_with_version <<< "$lang"
-  lang="${lang_with_version[0]}"
-  version="${lang_with_version[1]}"
+for lang_with_version in $languages; do
+  lang=$(echo $lang_with_version | cut -d '_' -f1)
+  version=$(echo $lang_with_version | cut -d '_' -f2)
 
   echo "\033[1mWould you like to install $lang now? [y/n]\033[0m"
 
@@ -120,4 +122,6 @@ for lang in "${languages[@]}"; do
     esac
   done
 done
+
+IFS=' '
 echo "\033[32m\033[1m***** ASDF VM setup complete *****\033[0m"

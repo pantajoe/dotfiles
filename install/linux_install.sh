@@ -32,7 +32,9 @@ sudo apt-get -y install \
   libxslt1-dev \
   libcurl4-openssl-dev \
   software-properties-common \
-  libffi-dev
+  libffi-dev \
+  python \
+  libsass-dev
 echo "\033[32m\033[1m***** DevTools (Git, Docker, etc.) installed successfully *****\033[0m"
 
 # 2. Fish

@@ -18,7 +18,8 @@ sudo apt-get -y install \
   software-properties-common \
   curl \
   file \
-  git
+  git \
+  python
 
 echo "\033[33m\033[1m***** Installing Homebrew *****\033[0m"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -47,7 +48,9 @@ brew install \
   zlib \
   libxml2 \
   libxslt \
-  gh
+  gh \
+  libsass \
+  sassc
 
 echo "\033[32m\033[1m***** DevTools (Git, Docker, etc.) installed successfully *****\033[0m"
 

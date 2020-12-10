@@ -7,8 +7,8 @@ starship init fish | source
 # Commands
 alias git-delete-merged-branches "git branch --merged | egrep -v '^\*|main|master|deployment_production|production|deployment_staging|staging|dev|development' | xargs git branch -d"
 alias dotfiles "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias docker-postgres "docker run --name postgres_instance -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres:12"
-alias docker-mysql "docker run --name mysql_instance -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes mysql:5.6"
+alias docker-postgres "docker run -d --name postgres_instance -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres:12"
+alias docker-mysql "docker run -d --name mysql_instance -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes mysql:5.6"
 
 # Rails Commands aliases
 alias rails "rails_alias"
@@ -41,6 +41,7 @@ alias rc    "rails_console_alias"
 # set -g fish_user_paths "/Users/joe.pantazidis/.local/bin" $fish_user_paths
 # set -g fish_user_paths "/Library/TeX/texbin" $fish_user_paths
 # set -g fish_user_paths "/usr/local/opt/apache-maven-3.6.3/bin" $fish_user_paths
+# set -g fish_user_paths "/home/linuxbrew/.linuxbrew/bin" $fish_user_paths
 
 # Environment Variables
 set -gx LANG "en_US.UTF-8"

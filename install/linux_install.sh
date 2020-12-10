@@ -13,42 +13,57 @@ fi
 echo "\033[33m\033[1m***** Installing DevTools (Git, Docker, etc.) *****\033[0m"
 sudo apt-get -y update
 sudo apt-get -y install \
-  git-core \
-  curl \
-  unzip \
-  wget \
   dirmngr \
-  gpg \
+  build-essential \
+  software-properties-common \
+  curl \
+  file \
+  git
+
+echo "\033[33m\033[1m***** Installing Homebrew *****\033[0m"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >> ~/.bash_profile
+echo "eval \$($(brew --prefix)/bin/brew shellenv)" >> ~/.profile
+echo "\033[32m\033[1m***** Homebrew installed successfully *****\033[0m"
+
+brew update
+brew install \
+  coreutils \
+  unzip \
+  openssl@1.1 \
+  readline \
+  gpgme \
+  curl \
+  wget \
+  git \
   docker \
   docker-compose \
-  zlib1g-dev \
-  build-essential \
-  libssl-dev \
-  libreadline-dev \
-  libyaml-dev \
-  libsqlite3-dev \
-  sqlite3 \
-  libxml2-dev \
-  libxslt1-dev \
-  libcurl4-openssl-dev \
-  software-properties-common \
-  libffi-dev
+  libffi \
+  sqlite \
+  libyaml \
+  libarchive \
+  zlib \
+  libxml2 \
+  libxslt \
+  gh
+
 echo "\033[32m\033[1m***** DevTools (Git, Docker, etc.) installed successfully *****\033[0m"
 
 # 2. Fish
 echo "\033[33m\033[1m***** Installing Fish *****\033[0m"
-sudo apt-get -y install \
-  fortune \
-  fish
-
-echo "\033[1m***** Installing Starship Prompt *****\033[0m"
-curl -fsSL https://starship.rs/install.sh | bash
-echo "\033[1m***** Starship Prompt installed successfully *****\033[0m"
+brew install \
+  fish \
+  starship \
+  fortune
 
 exec "${util_dir}/fish_setup.sh"
 echo "\033[32m\033[1m***** Fish installed successfully *****\033[0m"
 
 # 3. ASDF VM
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
+mkdir -p ~/.config/fish/completions && cp ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 exec "${util_dir}/asdf_setup.sh"
 
 # 4. Fonts & LaTeX
@@ -67,11 +82,12 @@ rm -rf ~/JetBrainsMono
 echo "\033[32m\033[1m***** Fonts (Fira Code, Hack Nerd Font, JetBrains Mono) installed successfully *****\033[0m"
 
 echo "\033[33m\033[1m***** Installing LaTeX *****\033[0m"
-sudo apt-get -y install \
-  texlive \
-  latexmk \
-  chktex \
-  libsynctex2
+brew install texlive
+# sudo apt-get -y install \
+#   texlive \
+#   latexmk \
+#   chktex \
+#   libsynctex2
 echo "\033[32m\033[1m***** LaTeX installed successfully *****\033[0m"
 
 # 5. Applications

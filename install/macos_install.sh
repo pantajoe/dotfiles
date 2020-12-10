@@ -4,32 +4,14 @@ echo "\033[32m\033[1m***** Initialize MacOS Setup! ******\033[0m"
 
 util_dir=$(dirname "$0")
 
-# Homebrew
-if ! brew --version >/dev/null 2>&1; then
-  echo "\033[31m\033[1mError! Homebrew not installed or broken!\033[0m"
-  echo "\033[1mWould you like to install homebrew now? [y/n]\033[0m"
-
-  while read -r ANSWER; do
-    case $ANSWER in
-    y | Y)
-      echo "\033[33m\033[1m***** Installing Homebrew *****\033[0m"
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-      echo "\033[32m\033[1m***** Homebrew installed successfully *****\033[0m"
-      break
-      ;;
-    n | N)
-      exit 1
-      ;;
-    *)
-      echo "\033[1mWould you like to install homebrew now? [y/n]\033[0m"
-      ;;
-    esac
-  done
-fi
-
 # 1. DevTools
 echo "\033[33m\033[1m***** Installing DevTools (Git, Docker, etc.) *****\033[0m"
 xcode-select --install
+
+echo "\033[33m\033[1m***** Installing Homebrew *****\033[0m"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo "\033[32m\033[1m***** Homebrew installed successfully *****\033[0m"
+
 brew update
 brew install \
   coreutils \
@@ -40,7 +22,8 @@ brew install \
   curl \
   git \
   docker \
-  docker-compose
+  docker-compose \
+  gh
 echo "\033[32m\033[1m***** DevTools (Git, Docker, etc.) installed successfully *****\033[0m"
 
 # 2. Fish
@@ -54,11 +37,13 @@ exec "${util_dir}/fish_setup.sh"
 echo "\033[32m\033[1m***** Fish installed successfully *****\033[0m"
 
 # 3. ASDF VM
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
+mkdir -p ~/.config/fish/completions && cp ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 exec "${util_dir}/asdf_setup.sh"
 
 # 4. QuickLook Plugins, Fonts, LaTeX
 echo "\033[33m\033[1m***** Installing QuickLook Plugins *****\033[0m"
-brew cask install \
+brew install --cask \
   qlmarkdown \
   qlcolorcode \
   qlstephen
@@ -67,14 +52,14 @@ echo "\033[32m\033[1m***** QuickLook Plugins installed successfully *****\033[0m
 
 echo "\033[33m\033[1m***** Installing Fonts (Fira Code, Hack Nerd Font, JetBrains Mono) *****\033[0m"
 brew tap homebrew/cask-fonts
-brew cask install \
+brew install --cask \
   font-hack-nerd-font \
   font-fira-code \
   font-jetbrains-mono
 echo "\033[32m\033[1m***** Fonts (Fira Code, Hack Nerd Font, JetBrains Mono) installed successfully *****\033[0m"
 
 echo "\033[33m\033[1m***** Installing LaTeX *****\033[0m"
-brew cask install mactex-no-gui
+brew install --cask mactex-no-gui
 echo "\033[32m\033[1m***** LaTeX installed successfully *****\033[0m"
 
 # 5. Applications

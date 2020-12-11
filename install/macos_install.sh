@@ -124,11 +124,12 @@ brew install --cask macs-fan-control
 echo "\033[32m\033[1m***** MacsFanControl installed successfully ******\033[0m"
 
 echo "\033[33m\033[1m***** Installing QMK Toolbox *****\033[0m"
+brew tap homebrew/cask-drivers
 brew install --cask qmk-toolbox
 echo "\033[32m\033[1m***** QMK Toolbox installed successfully ******\033[0m"
 
 echo "\033[33m\033[1m***** Installing Zoom.us *****\033[0m"
-brew install --cask zoomus
+brew install --cask zoom
 echo "\033[32m\033[1m***** Zoom.us installed successfully ******\033[0m"
 
 echo "\033[33m\033[1m***** Installing Typora *****\033[0m"

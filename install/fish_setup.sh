@@ -1,4 +1,5 @@
 echo "\033[1m***** Change Default Shell to Fish *****\033[0m"
+echo "$(which fish)" | sudo tee -a /etc/shells
 chsh -s "$(which fish)"
 
 echo "\033[1m***** Installing Re-Search Plug-In for Fish *****\033[0m"

@@ -8,8 +8,8 @@ $character
 
 [character]
 disabled = false
-success_symbol = "[╰──\uF553](bold green)"
-error_symbol = "[╰──\uF553](bold red)"
+success_symbol = "[╰──\uF85E](bold green)"
+error_symbol = "[╰──\uF85E](bold red)"
 
 [ruby]
 disabled = false

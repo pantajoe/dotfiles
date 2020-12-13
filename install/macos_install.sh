@@ -47,6 +47,13 @@ brew install --cask \
   qlmarkdown \
   qlcolorcode \
   qlstephen
+
+xattr -cr ~/Library/QuickLook/QLColorCode.qlgenerator
+xattr -cr ~/Library/QuickLook/QLMarkdown.qlgenerator
+xattr -cr ~/Library/QuickLook/QLStephen.qlgenerator
+
+qlmanage -r
+qlmanage -r cache
 echo "\033[32m\033[1m***** QuickLook Plugins installed successfully *****\033[0m"
 
 
